@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+xmlns:g="http://base.google.com/ns/1.0"
+xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+xmlns:z="http://zarkas.net/ns/">{% for row in rows %}
+  <entry>{% for k, v in row.items() %}  
+       <z:{{ k|header(lowercase) }} {{ k|annotate(annotations) }}>{{ v|e }}</z:{{ k|header(lowercase) }}>{% endfor %}
+  </entry>{% endfor %}
+</feed>
